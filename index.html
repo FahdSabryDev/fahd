@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>رحلتنا سوا 🎉</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffe6f0, #fff);
+      font-family: 'Cairo', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    input, button {
+      padding: 10px;
+      margin-top: 15px;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff4081;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #d63384;
+    }
+
+    video {
+      margin-top: 20px;
+      width: 100%;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="quiz">
+    <div id="step1">
+      <h3>فاكرة أول فيلم شفناه سوا؟ 🎬</h3>
+      <input type="text" id="answer1" placeholder="اكتبي اسم الفيلم">
+      <button onclick="checkAnswer1()">تأكيد</button>
+      <div class="message" id="msg1"></div>
+    </div>
+
+    <div id="step2" class="hidden">
+      <h3>وأول مكان خرجنا فيه؟ 🌆</h3>
+      <input type="text" id="answer2" placeholder="اكتبي المكان">
+      <button onclick="checkAnswer2()">تأكيد</button>
+      <div class="message" id="msg2"></div>
+    </div>
+
+    <div id="step3" class="hidden">
+      <h3>💌 آخر سؤال: إيه أكتر حاجة بتحبيني فيها؟</h3>
+      <input type="text" id="answer3" placeholder="جاوبي بصراحة 😉">
+      <button onclick="checkAnswer3()">تأكيد</button>
+      <div class="message" id="msg3"></div>
+    </div>
+
+    <div id="final" class="hidden">
+      <h3>🎉 وده فيديو صغير فيه شوية ذكريات لينا 💖</h3>
+      <video controls>
+        <source src="your_video.mp4" type="video/mp4">
+        المتصفح مش بيدعم الفيديو 🙈
+      </video>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer1() {
+      const input = document.getElementById("answer1").value.trim().toLowerCase();
+      if (input.includes("تيتانك") || input.includes("titanic")) {
+        document.getElementById("msg1").textContent = "صح! والله ما كنتش هنسى اللحظة دي 🥺";
+        document.getElementById("step2").classList.remove("hidden");
+      } else {
+        document.getElementById("msg1").textContent = "قريبة! جربي تاني 😉";
+      }
+    }
+
+    function checkAnswer2() {
+      const input = document.getElementById("answer2").value.trim().toLowerCase();
+      if (input.includes("الكورنيش") || input.includes("كورنيش")) {
+        document.getElementById("msg2").textContent = "الله على الذكريات 😍";
+        document.getElementById("step3").classList.remove("hidden");
+      } else {
+        document.getElementById("msg2").textContent = "مممم لسه! فكري كمان 🧐";
+      }
+    }
+
+    function checkAnswer3() {
+      const input = document.getElementById("answer3").value.trim().toLowerCase();
+      if (input.length > 3) {
+        document.getElementById("msg3").textContent = "أنا كمان بحبك أكتر من كده ❤️‍🔥";
+        document.getElementById("final").classList.remove("hidden");
+      } else {
+        document.getElementById("msg3").textContent = "جاوبي بجد بقاااا 😂";
+      }
+    }
+  </script>
+</body>
+</html>
+
